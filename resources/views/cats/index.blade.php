@@ -10,6 +10,7 @@
 
 <body>
     <h1>Cats Is Lifeee</h1>
+    <a href="{{ route('cats.create') }}">Add New Cat</a>
 
     <table border="1">
         <thead>

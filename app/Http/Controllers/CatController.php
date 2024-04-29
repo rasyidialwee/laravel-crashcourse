@@ -22,7 +22,7 @@ class CatController extends Controller
      */
     public function create()
     {
-        //
+        return view('cats.create');
     }
 
     /**
@@ -30,7 +30,19 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $cat = Cat::create($request->all());
+
+        $cat = new Cat();
+        $cat->name = $request->name;
+        $cat->breed = $request->breed;
+        $cat->age = $request->age;
+        $cat->color = $request->color;
+        $cat->image_url = fake()->imageUrl();
+        $cat->save();
+
+
+
+        return redirect()->route('cats.index');
     }
 
     /**
