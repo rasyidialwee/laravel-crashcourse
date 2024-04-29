@@ -46,7 +46,9 @@ class CatController extends Controller
      */
     public function edit(Cat $cat)
     {
-        //
+        return view('cats.edit', [
+            'cat' => $cat,
+        ]);
     }
 
     /**
@@ -54,7 +56,14 @@ class CatController extends Controller
      */
     public function update(Request $request, Cat $cat)
     {
-        //
+        // $cat->update($request->all());
+        $cat->name = $request->name;
+        $cat->breed = $request->breed;
+        $cat->age = $request->age;
+        $cat->color = $request->color;
+        $cat->save();
+
+        return redirect()->route('cats.index');
     }
 
     /**
